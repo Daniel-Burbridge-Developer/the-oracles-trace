@@ -45,7 +45,7 @@ This phase establishes the foundational application structure and development en
   - [X] Set up Git repository and initial commit.
     - _Best Practice:_ Establish clear commit message conventions.
     - _Tools:_ Git, GitHub/GitLab/Bitbucket.
-  - [ ] Configure basic project structure (folders for components, pages, hooks, utilities).
+  - [X] Configure basic project structure (folders for components, pages, hooks, utilities).
 - [ ] **1.2 Routing & Navigation:**
   - [ ] Implement basic routing for different algorithm categories (e.g., `/sorting`, `/searching`, `/pathfinding`).
     - _Considerations:_ Utilize TanStack Router for type-safe routing.
