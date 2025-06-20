@@ -9,25 +9,25 @@ function Home() {
   const sections = [
     {
       name: "Sorting Algorithms",
-      href: "/sorting",
+      href: "/algorithms/sorting",
       img: "https://iv1bgce8et.ufs.sh/f/ryr1dmZ5jpgcOCMRjemV5hLwxBTjdfuzCGgHntOmlPcs3kvq",
       className: "col-span-12 sm:col-span-6 row-span-2",
     },
     {
       name: "Searching Algorithms",
-      href: "/searching",
+      href: "/algorithms/searching",
       img: "https://iv1bgce8et.ufs.sh/f/ryr1dmZ5jpgcvBIf4qbglkhbTpKtMsdQ8FPNqRYBafSO06Dz",
       className: "col-span-12 sm:col-span-6 row-span-1",
     },
     {
       name: "Path-Finding",
-      href: "/pathfinding",
+      href: "/algorithms/pathfinding",
       img: "https://iv1bgce8et.ufs.sh/f/ryr1dmZ5jpgcukltJoT97Gyf2Bo0s8V6tkxeXzhNvHdbpaIL",
       className: "col-span-12 sm:col-span-4 row-span-1",
     },
     {
       name: "About & Docs",
-      href: "/about",
+      href: "/about-docs",
       img: "https://iv1bgce8et.ufs.sh/f/ryr1dmZ5jpgctFIXLcV2skmVQPwSIZaGbDuM1LcUClRfnWpd",
       className: "col-span-12 sm:col-span-4 row-span-1",
     },

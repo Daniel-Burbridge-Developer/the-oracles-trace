@@ -38,20 +38,20 @@ This checklist guides our phased development, breaking down the project into man
 
 This phase establishes the foundational application structure and development environment.
 
-- [X] **1.1 Project Initialization:**
-  - [X] Initialize React TanStack Start project.
+- [x] **1.1 Project Initialization:**
+  - [x] Initialize React TanStack Start project.
     - _Considerations:_ Choose an appropriate template if available.
     - _Tools:_ `npm create tanstack-start@latest` or similar.
-  - [X] Set up Git repository and initial commit.
+  - [x] Set up Git repository and initial commit.
     - _Best Practice:_ Establish clear commit message conventions.
     - _Tools:_ Git, GitHub/GitLab/Bitbucket.
-  - [X] Configure basic project structure (folders for components, pages, hooks, utilities).
-- [X] **1.2 Routing & Navigation:**
-  - [X] Implement basic routing for different algorithm categories (e.g., `/sorting`, `/searching`, `/pathfinding`).
+  - [x] Configure basic project structure (folders for components, pages, hooks, utilities).
+- [x] **1.2 Routing & Navigation:**
+  - [x] Implement basic routing for different algorithm categories (e.g., `/sorting`, `/searching`, `/pathfinding`).
     - _Considerations:_ Utilize TanStack Router for type-safe routing.
-  - [X] Create a home page/dashboard with clear links to various algorithm visualizers.
+  - [x] Create a home page/dashboard with clear links to various algorithm visualizers.
 - [ ] **1.3 Core Layout & UI Shell:**
-  - [ ] Develop a basic application layout (header, sidebar/navigation, main content area).
+  - [x] Develop a basic application layout (header, sidebar/navigation, main content area).
   - [ ] Design a simple, responsive UI shell to house the visualizations.
 - [ ] **1.4 Initial Data Generation (SSR Integration):**
   - [ ] Experiment with `createServerFn` in React TanStack Start to generate an initial, simple dataset (e.g., a small array) on the server.

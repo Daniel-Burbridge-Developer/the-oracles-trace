@@ -8,39 +8,80 @@
 // You should NOT make any changes in this file as it will be overwritten.
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
+import { createFileRoute } from '@tanstack/react-router'
+
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AlgorithmsLayoutRouteImport } from './routes/algorithms/_layout'
+import { Route as AlgorithmsLayoutPathfindingIndexRouteImport } from './routes/algorithms/_layout/pathfinding/index'
 
+const AlgorithmsRouteImport = createFileRoute('/algorithms')()
+
+const AlgorithmsRoute = AlgorithmsRouteImport.update({
+  id: '/algorithms',
+  path: '/algorithms',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AlgorithmsLayoutRoute = AlgorithmsLayoutRouteImport.update({
+  id: '/_layout',
+  getParentRoute: () => AlgorithmsRoute,
+} as any)
+const AlgorithmsLayoutPathfindingIndexRoute =
+  AlgorithmsLayoutPathfindingIndexRouteImport.update({
+    id: '/pathfinding/',
+    path: '/pathfinding/',
+    getParentRoute: () => AlgorithmsLayoutRoute,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/algorithms': typeof AlgorithmsLayoutRouteWithChildren
+  '/algorithms/pathfinding': typeof AlgorithmsLayoutPathfindingIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/algorithms': typeof AlgorithmsLayoutRouteWithChildren
+  '/algorithms/pathfinding': typeof AlgorithmsLayoutPathfindingIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/algorithms': typeof AlgorithmsRouteWithChildren
+  '/algorithms/_layout': typeof AlgorithmsLayoutRouteWithChildren
+  '/algorithms/_layout/pathfinding/': typeof AlgorithmsLayoutPathfindingIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths: '/' | '/algorithms' | '/algorithms/pathfinding'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to: '/' | '/algorithms' | '/algorithms/pathfinding'
+  id:
+    | '__root__'
+    | '/'
+    | '/algorithms'
+    | '/algorithms/_layout'
+    | '/algorithms/_layout/pathfinding/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AlgorithmsRoute: typeof AlgorithmsRouteWithChildren
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/algorithms': {
+      id: '/algorithms'
+      path: '/algorithms'
+      fullPath: '/algorithms'
+      preLoaderRoute: typeof AlgorithmsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -48,11 +89,49 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/algorithms/_layout': {
+      id: '/algorithms/_layout'
+      path: '/algorithms'
+      fullPath: '/algorithms'
+      preLoaderRoute: typeof AlgorithmsLayoutRouteImport
+      parentRoute: typeof AlgorithmsRoute
+    }
+    '/algorithms/_layout/pathfinding/': {
+      id: '/algorithms/_layout/pathfinding/'
+      path: '/pathfinding'
+      fullPath: '/algorithms/pathfinding'
+      preLoaderRoute: typeof AlgorithmsLayoutPathfindingIndexRouteImport
+      parentRoute: typeof AlgorithmsLayoutRoute
+    }
   }
 }
 
+interface AlgorithmsLayoutRouteChildren {
+  AlgorithmsLayoutPathfindingIndexRoute: typeof AlgorithmsLayoutPathfindingIndexRoute
+}
+
+const AlgorithmsLayoutRouteChildren: AlgorithmsLayoutRouteChildren = {
+  AlgorithmsLayoutPathfindingIndexRoute: AlgorithmsLayoutPathfindingIndexRoute,
+}
+
+const AlgorithmsLayoutRouteWithChildren =
+  AlgorithmsLayoutRoute._addFileChildren(AlgorithmsLayoutRouteChildren)
+
+interface AlgorithmsRouteChildren {
+  AlgorithmsLayoutRoute: typeof AlgorithmsLayoutRouteWithChildren
+}
+
+const AlgorithmsRouteChildren: AlgorithmsRouteChildren = {
+  AlgorithmsLayoutRoute: AlgorithmsLayoutRouteWithChildren,
+}
+
+const AlgorithmsRouteWithChildren = AlgorithmsRoute._addFileChildren(
+  AlgorithmsRouteChildren,
+)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AlgorithmsRoute: AlgorithmsRouteWithChildren,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
