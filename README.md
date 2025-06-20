@@ -38,7 +38,7 @@ This checklist guides our phased development, breaking down the project into man
 
 This phase establishes the foundational application structure and development environment.
 
-- [ ] **1.1 Project Initialization:**
+- [X] **1.1 Project Initialization:**
   - [X] Initialize React TanStack Start project.
     - _Considerations:_ Choose an appropriate template if available.
     - _Tools:_ `npm create tanstack-start@latest` or similar.
@@ -47,7 +47,7 @@ This phase establishes the foundational application structure and development en
     - _Tools:_ Git, GitHub/GitLab/Bitbucket.
   - [X] Configure basic project structure (folders for components, pages, hooks, utilities).
 - [ ] **1.2 Routing & Navigation:**
-  - [ ] Implement basic routing for different algorithm categories (e.g., `/sorting`, `/searching`, `/pathfinding`).
+  - [X] Implement basic routing for different algorithm categories (e.g., `/sorting`, `/searching`, `/pathfinding`).
     - _Considerations:_ Utilize TanStack Router for type-safe routing.
   - [ ] Create a home page/dashboard with clear links to various algorithm visualizers.
 - [ ] **1.3 Core Layout & UI Shell:**
