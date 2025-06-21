@@ -20,7 +20,7 @@ function Home() {
       className: "col-span-12 sm:col-span-6 row-span-1",
     },
     {
-      name: "Path-Finding",
+      name: "Path-Finding Algorithms",
       href: "/algorithms/pathfinding",
       img: "https://iv1bgce8et.ufs.sh/f/ryr1dmZ5jpgcukltJoT97Gyf2Bo0s8V6tkxeXzhNvHdbpaIL",
       className: "col-span-12 sm:col-span-4 row-span-1",
@@ -30,6 +30,55 @@ function Home() {
       href: "/about-docs",
       img: "https://iv1bgce8et.ufs.sh/f/ryr1dmZ5jpgctFIXLcV2skmVQPwSIZaGbDuM1LcUClRfnWpd",
       className: "col-span-12 sm:col-span-4 row-span-1",
+    },
+    // --- New Sections Below ---
+    {
+      name: "Graph Algorithms",
+      href: "/algorithms/graphs",
+      img: "https://your-image-host.com/graph_algo.jpg", // Placeholder image
+      className: "col-span-12 sm:col-span-4 row-span-1",
+    },
+    {
+      name: "Tree Algorithms",
+      href: "/algorithms/trees",
+      img: "https://your-image-host.com/tree_algo.jpg", // Placeholder image
+      className: "col-span-12 sm:col-span-4 row-span-1",
+    },
+    {
+      name: "Dynamic Programming",
+      href: "/algorithms/dynamic-programming",
+      img: "https://your-image-host.com/dp_algo.jpg", // Placeholder image
+      className: "col-span-12 sm:col-span-6 row-span-1",
+    },
+    {
+      name: "Data Structures",
+      href: "/data-structures",
+      img: "https://your-image-host.com/data_structures.jpg", // Placeholder image
+      className: "col-span-12 sm:col-span-6 row-span-1",
+    },
+    {
+      name: "Compression Algorithms",
+      href: "/algorithms/compression",
+      img: "https://your-image-host.com/compression_algo.jpg", // Placeholder image
+      className: "col-span-12 sm:col-span-4 row-span-1",
+    },
+    {
+      name: "String Algorithms",
+      href: "/algorithms/strings",
+      img: "https://your-image-host.com/string_algo.jpg", // Placeholder image
+      className: "col-span-12 sm:col-span-4 row-span-1",
+    },
+    {
+      name: "Recursion",
+      href: "/algorithms/recursion",
+      img: "https://your-image-host.com/recursion_algo.jpg", // Placeholder image
+      className: "col-span-12 sm:col-span-4 row-span-1",
+    },
+    {
+      name: "Machine Learning (Basic)",
+      href: "/algorithms/machine-learning",
+      img: "https://your-image-host.com/ml_algo.jpg", // Placeholder image
+      className: "col-span-12 sm:col-span-6 row-span-1",
     },
   ];
 
