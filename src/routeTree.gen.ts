@@ -13,9 +13,17 @@ import { createFileRoute } from '@tanstack/react-router'
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AlgorithmsLayoutRouteImport } from './routes/algorithms/_layout'
+import { Route as AlgorithmsLayoutTreeRouteImport } from './routes/algorithms/_layout/tree'
+import { Route as AlgorithmsLayoutStringRouteImport } from './routes/algorithms/_layout/string'
 import { Route as AlgorithmsLayoutSortingRouteImport } from './routes/algorithms/_layout/sorting'
 import { Route as AlgorithmsLayoutSearchingRouteImport } from './routes/algorithms/_layout/searching'
+import { Route as AlgorithmsLayoutRecursionRouteImport } from './routes/algorithms/_layout/recursion'
 import { Route as AlgorithmsLayoutPathfindingRouteImport } from './routes/algorithms/_layout/pathfinding'
+import { Route as AlgorithmsLayoutMachineLearningRouteImport } from './routes/algorithms/_layout/machine-learning'
+import { Route as AlgorithmsLayoutGraphRouteImport } from './routes/algorithms/_layout/graph'
+import { Route as AlgorithmsLayoutDynamicProgrammingRouteImport } from './routes/algorithms/_layout/dynamic-programming'
+import { Route as AlgorithmsLayoutDataStructuresRouteImport } from './routes/algorithms/_layout/data-structures'
+import { Route as AlgorithmsLayoutCompressionRouteImport } from './routes/algorithms/_layout/compression'
 
 const AlgorithmsRouteImport = createFileRoute('/algorithms')()
 
@@ -33,6 +41,16 @@ const AlgorithmsLayoutRoute = AlgorithmsLayoutRouteImport.update({
   id: '/_layout',
   getParentRoute: () => AlgorithmsRoute,
 } as any)
+const AlgorithmsLayoutTreeRoute = AlgorithmsLayoutTreeRouteImport.update({
+  id: '/tree',
+  path: '/tree',
+  getParentRoute: () => AlgorithmsLayoutRoute,
+} as any)
+const AlgorithmsLayoutStringRoute = AlgorithmsLayoutStringRouteImport.update({
+  id: '/string',
+  path: '/string',
+  getParentRoute: () => AlgorithmsLayoutRoute,
+} as any)
 const AlgorithmsLayoutSortingRoute = AlgorithmsLayoutSortingRouteImport.update({
   id: '/sorting',
   path: '/sorting',
@@ -44,59 +62,142 @@ const AlgorithmsLayoutSearchingRoute =
     path: '/searching',
     getParentRoute: () => AlgorithmsLayoutRoute,
   } as any)
+const AlgorithmsLayoutRecursionRoute =
+  AlgorithmsLayoutRecursionRouteImport.update({
+    id: '/recursion',
+    path: '/recursion',
+    getParentRoute: () => AlgorithmsLayoutRoute,
+  } as any)
 const AlgorithmsLayoutPathfindingRoute =
   AlgorithmsLayoutPathfindingRouteImport.update({
     id: '/pathfinding',
     path: '/pathfinding',
     getParentRoute: () => AlgorithmsLayoutRoute,
   } as any)
+const AlgorithmsLayoutMachineLearningRoute =
+  AlgorithmsLayoutMachineLearningRouteImport.update({
+    id: '/machine-learning',
+    path: '/machine-learning',
+    getParentRoute: () => AlgorithmsLayoutRoute,
+  } as any)
+const AlgorithmsLayoutGraphRoute = AlgorithmsLayoutGraphRouteImport.update({
+  id: '/graph',
+  path: '/graph',
+  getParentRoute: () => AlgorithmsLayoutRoute,
+} as any)
+const AlgorithmsLayoutDynamicProgrammingRoute =
+  AlgorithmsLayoutDynamicProgrammingRouteImport.update({
+    id: '/dynamic-programming',
+    path: '/dynamic-programming',
+    getParentRoute: () => AlgorithmsLayoutRoute,
+  } as any)
+const AlgorithmsLayoutDataStructuresRoute =
+  AlgorithmsLayoutDataStructuresRouteImport.update({
+    id: '/data-structures',
+    path: '/data-structures',
+    getParentRoute: () => AlgorithmsLayoutRoute,
+  } as any)
+const AlgorithmsLayoutCompressionRoute =
+  AlgorithmsLayoutCompressionRouteImport.update({
+    id: '/compression',
+    path: '/compression',
+    getParentRoute: () => AlgorithmsLayoutRoute,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/algorithms': typeof AlgorithmsLayoutRouteWithChildren
+  '/algorithms/compression': typeof AlgorithmsLayoutCompressionRoute
+  '/algorithms/data-structures': typeof AlgorithmsLayoutDataStructuresRoute
+  '/algorithms/dynamic-programming': typeof AlgorithmsLayoutDynamicProgrammingRoute
+  '/algorithms/graph': typeof AlgorithmsLayoutGraphRoute
+  '/algorithms/machine-learning': typeof AlgorithmsLayoutMachineLearningRoute
   '/algorithms/pathfinding': typeof AlgorithmsLayoutPathfindingRoute
+  '/algorithms/recursion': typeof AlgorithmsLayoutRecursionRoute
   '/algorithms/searching': typeof AlgorithmsLayoutSearchingRoute
   '/algorithms/sorting': typeof AlgorithmsLayoutSortingRoute
+  '/algorithms/string': typeof AlgorithmsLayoutStringRoute
+  '/algorithms/tree': typeof AlgorithmsLayoutTreeRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/algorithms': typeof AlgorithmsLayoutRouteWithChildren
+  '/algorithms/compression': typeof AlgorithmsLayoutCompressionRoute
+  '/algorithms/data-structures': typeof AlgorithmsLayoutDataStructuresRoute
+  '/algorithms/dynamic-programming': typeof AlgorithmsLayoutDynamicProgrammingRoute
+  '/algorithms/graph': typeof AlgorithmsLayoutGraphRoute
+  '/algorithms/machine-learning': typeof AlgorithmsLayoutMachineLearningRoute
   '/algorithms/pathfinding': typeof AlgorithmsLayoutPathfindingRoute
+  '/algorithms/recursion': typeof AlgorithmsLayoutRecursionRoute
   '/algorithms/searching': typeof AlgorithmsLayoutSearchingRoute
   '/algorithms/sorting': typeof AlgorithmsLayoutSortingRoute
+  '/algorithms/string': typeof AlgorithmsLayoutStringRoute
+  '/algorithms/tree': typeof AlgorithmsLayoutTreeRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/algorithms': typeof AlgorithmsRouteWithChildren
   '/algorithms/_layout': typeof AlgorithmsLayoutRouteWithChildren
+  '/algorithms/_layout/compression': typeof AlgorithmsLayoutCompressionRoute
+  '/algorithms/_layout/data-structures': typeof AlgorithmsLayoutDataStructuresRoute
+  '/algorithms/_layout/dynamic-programming': typeof AlgorithmsLayoutDynamicProgrammingRoute
+  '/algorithms/_layout/graph': typeof AlgorithmsLayoutGraphRoute
+  '/algorithms/_layout/machine-learning': typeof AlgorithmsLayoutMachineLearningRoute
   '/algorithms/_layout/pathfinding': typeof AlgorithmsLayoutPathfindingRoute
+  '/algorithms/_layout/recursion': typeof AlgorithmsLayoutRecursionRoute
   '/algorithms/_layout/searching': typeof AlgorithmsLayoutSearchingRoute
   '/algorithms/_layout/sorting': typeof AlgorithmsLayoutSortingRoute
+  '/algorithms/_layout/string': typeof AlgorithmsLayoutStringRoute
+  '/algorithms/_layout/tree': typeof AlgorithmsLayoutTreeRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
     | '/algorithms'
+    | '/algorithms/compression'
+    | '/algorithms/data-structures'
+    | '/algorithms/dynamic-programming'
+    | '/algorithms/graph'
+    | '/algorithms/machine-learning'
     | '/algorithms/pathfinding'
+    | '/algorithms/recursion'
     | '/algorithms/searching'
     | '/algorithms/sorting'
+    | '/algorithms/string'
+    | '/algorithms/tree'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/algorithms'
+    | '/algorithms/compression'
+    | '/algorithms/data-structures'
+    | '/algorithms/dynamic-programming'
+    | '/algorithms/graph'
+    | '/algorithms/machine-learning'
     | '/algorithms/pathfinding'
+    | '/algorithms/recursion'
     | '/algorithms/searching'
     | '/algorithms/sorting'
+    | '/algorithms/string'
+    | '/algorithms/tree'
   id:
     | '__root__'
     | '/'
     | '/algorithms'
     | '/algorithms/_layout'
+    | '/algorithms/_layout/compression'
+    | '/algorithms/_layout/data-structures'
+    | '/algorithms/_layout/dynamic-programming'
+    | '/algorithms/_layout/graph'
+    | '/algorithms/_layout/machine-learning'
     | '/algorithms/_layout/pathfinding'
+    | '/algorithms/_layout/recursion'
     | '/algorithms/_layout/searching'
     | '/algorithms/_layout/sorting'
+    | '/algorithms/_layout/string'
+    | '/algorithms/_layout/tree'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -127,6 +228,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AlgorithmsLayoutRouteImport
       parentRoute: typeof AlgorithmsRoute
     }
+    '/algorithms/_layout/tree': {
+      id: '/algorithms/_layout/tree'
+      path: '/tree'
+      fullPath: '/algorithms/tree'
+      preLoaderRoute: typeof AlgorithmsLayoutTreeRouteImport
+      parentRoute: typeof AlgorithmsLayoutRoute
+    }
+    '/algorithms/_layout/string': {
+      id: '/algorithms/_layout/string'
+      path: '/string'
+      fullPath: '/algorithms/string'
+      preLoaderRoute: typeof AlgorithmsLayoutStringRouteImport
+      parentRoute: typeof AlgorithmsLayoutRoute
+    }
     '/algorithms/_layout/sorting': {
       id: '/algorithms/_layout/sorting'
       path: '/sorting'
@@ -141,6 +256,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AlgorithmsLayoutSearchingRouteImport
       parentRoute: typeof AlgorithmsLayoutRoute
     }
+    '/algorithms/_layout/recursion': {
+      id: '/algorithms/_layout/recursion'
+      path: '/recursion'
+      fullPath: '/algorithms/recursion'
+      preLoaderRoute: typeof AlgorithmsLayoutRecursionRouteImport
+      parentRoute: typeof AlgorithmsLayoutRoute
+    }
     '/algorithms/_layout/pathfinding': {
       id: '/algorithms/_layout/pathfinding'
       path: '/pathfinding'
@@ -148,19 +270,71 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AlgorithmsLayoutPathfindingRouteImport
       parentRoute: typeof AlgorithmsLayoutRoute
     }
+    '/algorithms/_layout/machine-learning': {
+      id: '/algorithms/_layout/machine-learning'
+      path: '/machine-learning'
+      fullPath: '/algorithms/machine-learning'
+      preLoaderRoute: typeof AlgorithmsLayoutMachineLearningRouteImport
+      parentRoute: typeof AlgorithmsLayoutRoute
+    }
+    '/algorithms/_layout/graph': {
+      id: '/algorithms/_layout/graph'
+      path: '/graph'
+      fullPath: '/algorithms/graph'
+      preLoaderRoute: typeof AlgorithmsLayoutGraphRouteImport
+      parentRoute: typeof AlgorithmsLayoutRoute
+    }
+    '/algorithms/_layout/dynamic-programming': {
+      id: '/algorithms/_layout/dynamic-programming'
+      path: '/dynamic-programming'
+      fullPath: '/algorithms/dynamic-programming'
+      preLoaderRoute: typeof AlgorithmsLayoutDynamicProgrammingRouteImport
+      parentRoute: typeof AlgorithmsLayoutRoute
+    }
+    '/algorithms/_layout/data-structures': {
+      id: '/algorithms/_layout/data-structures'
+      path: '/data-structures'
+      fullPath: '/algorithms/data-structures'
+      preLoaderRoute: typeof AlgorithmsLayoutDataStructuresRouteImport
+      parentRoute: typeof AlgorithmsLayoutRoute
+    }
+    '/algorithms/_layout/compression': {
+      id: '/algorithms/_layout/compression'
+      path: '/compression'
+      fullPath: '/algorithms/compression'
+      preLoaderRoute: typeof AlgorithmsLayoutCompressionRouteImport
+      parentRoute: typeof AlgorithmsLayoutRoute
+    }
   }
 }
 
 interface AlgorithmsLayoutRouteChildren {
+  AlgorithmsLayoutCompressionRoute: typeof AlgorithmsLayoutCompressionRoute
+  AlgorithmsLayoutDataStructuresRoute: typeof AlgorithmsLayoutDataStructuresRoute
+  AlgorithmsLayoutDynamicProgrammingRoute: typeof AlgorithmsLayoutDynamicProgrammingRoute
+  AlgorithmsLayoutGraphRoute: typeof AlgorithmsLayoutGraphRoute
+  AlgorithmsLayoutMachineLearningRoute: typeof AlgorithmsLayoutMachineLearningRoute
   AlgorithmsLayoutPathfindingRoute: typeof AlgorithmsLayoutPathfindingRoute
+  AlgorithmsLayoutRecursionRoute: typeof AlgorithmsLayoutRecursionRoute
   AlgorithmsLayoutSearchingRoute: typeof AlgorithmsLayoutSearchingRoute
   AlgorithmsLayoutSortingRoute: typeof AlgorithmsLayoutSortingRoute
+  AlgorithmsLayoutStringRoute: typeof AlgorithmsLayoutStringRoute
+  AlgorithmsLayoutTreeRoute: typeof AlgorithmsLayoutTreeRoute
 }
 
 const AlgorithmsLayoutRouteChildren: AlgorithmsLayoutRouteChildren = {
+  AlgorithmsLayoutCompressionRoute: AlgorithmsLayoutCompressionRoute,
+  AlgorithmsLayoutDataStructuresRoute: AlgorithmsLayoutDataStructuresRoute,
+  AlgorithmsLayoutDynamicProgrammingRoute:
+    AlgorithmsLayoutDynamicProgrammingRoute,
+  AlgorithmsLayoutGraphRoute: AlgorithmsLayoutGraphRoute,
+  AlgorithmsLayoutMachineLearningRoute: AlgorithmsLayoutMachineLearningRoute,
   AlgorithmsLayoutPathfindingRoute: AlgorithmsLayoutPathfindingRoute,
+  AlgorithmsLayoutRecursionRoute: AlgorithmsLayoutRecursionRoute,
   AlgorithmsLayoutSearchingRoute: AlgorithmsLayoutSearchingRoute,
   AlgorithmsLayoutSortingRoute: AlgorithmsLayoutSortingRoute,
+  AlgorithmsLayoutStringRoute: AlgorithmsLayoutStringRoute,
+  AlgorithmsLayoutTreeRoute: AlgorithmsLayoutTreeRoute,
 }
 
 const AlgorithmsLayoutRouteWithChildren =

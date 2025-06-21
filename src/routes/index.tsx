@@ -40,13 +40,13 @@ function Home() {
     {
       name: "Dynamic Programming",
       href: "/algorithms/dynamic-programming",
-      img: "https://your-image-host.com/dp_algo.jpg", // Placeholder image
+      img: "https://iv1bgce8et.ufs.sh/f/ryr1dmZ5jpgciQQpJncuzQ9UVOny6PsSxNLpvrb1Ca05liIq", // Placeholder image
       className: "col-span-12 sm:col-span-6 row-span-1",
     },
     {
       name: "Data Structures",
       href: "/data-structures",
-      img: "https://iv1bgce8et.ufs.sh/f/ryr1dmZ5jpgciQQpJncuzQ9UVOny6PsSxNLpvrb1Ca05liIq", // Placeholder image
+      img: "https://iv1bgce8et.ufs.sh/f/ryr1dmZ5jpgc9UB4vj56I4HPmw1SbZvTiNjpDyu2BVoGOh3M", // Placeholder image
       className: "col-span-12 sm:col-span-6 row-span-1",
     },
     {
