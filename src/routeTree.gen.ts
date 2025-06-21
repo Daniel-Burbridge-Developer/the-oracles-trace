@@ -13,7 +13,9 @@ import { createFileRoute } from '@tanstack/react-router'
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AlgorithmsLayoutRouteImport } from './routes/algorithms/_layout'
-import { Route as AlgorithmsLayoutPathfindingIndexRouteImport } from './routes/algorithms/_layout/pathfinding/index'
+import { Route as AlgorithmsLayoutSortingRouteImport } from './routes/algorithms/_layout/sorting'
+import { Route as AlgorithmsLayoutSearchingRouteImport } from './routes/algorithms/_layout/searching'
+import { Route as AlgorithmsLayoutPathfindingRouteImport } from './routes/algorithms/_layout/pathfinding'
 
 const AlgorithmsRouteImport = createFileRoute('/algorithms')()
 
@@ -31,41 +33,70 @@ const AlgorithmsLayoutRoute = AlgorithmsLayoutRouteImport.update({
   id: '/_layout',
   getParentRoute: () => AlgorithmsRoute,
 } as any)
-const AlgorithmsLayoutPathfindingIndexRoute =
-  AlgorithmsLayoutPathfindingIndexRouteImport.update({
-    id: '/pathfinding/',
-    path: '/pathfinding/',
+const AlgorithmsLayoutSortingRoute = AlgorithmsLayoutSortingRouteImport.update({
+  id: '/sorting',
+  path: '/sorting',
+  getParentRoute: () => AlgorithmsLayoutRoute,
+} as any)
+const AlgorithmsLayoutSearchingRoute =
+  AlgorithmsLayoutSearchingRouteImport.update({
+    id: '/searching',
+    path: '/searching',
+    getParentRoute: () => AlgorithmsLayoutRoute,
+  } as any)
+const AlgorithmsLayoutPathfindingRoute =
+  AlgorithmsLayoutPathfindingRouteImport.update({
+    id: '/pathfinding',
+    path: '/pathfinding',
     getParentRoute: () => AlgorithmsLayoutRoute,
   } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/algorithms': typeof AlgorithmsLayoutRouteWithChildren
-  '/algorithms/pathfinding': typeof AlgorithmsLayoutPathfindingIndexRoute
+  '/algorithms/pathfinding': typeof AlgorithmsLayoutPathfindingRoute
+  '/algorithms/searching': typeof AlgorithmsLayoutSearchingRoute
+  '/algorithms/sorting': typeof AlgorithmsLayoutSortingRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/algorithms': typeof AlgorithmsLayoutRouteWithChildren
-  '/algorithms/pathfinding': typeof AlgorithmsLayoutPathfindingIndexRoute
+  '/algorithms/pathfinding': typeof AlgorithmsLayoutPathfindingRoute
+  '/algorithms/searching': typeof AlgorithmsLayoutSearchingRoute
+  '/algorithms/sorting': typeof AlgorithmsLayoutSortingRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/algorithms': typeof AlgorithmsRouteWithChildren
   '/algorithms/_layout': typeof AlgorithmsLayoutRouteWithChildren
-  '/algorithms/_layout/pathfinding/': typeof AlgorithmsLayoutPathfindingIndexRoute
+  '/algorithms/_layout/pathfinding': typeof AlgorithmsLayoutPathfindingRoute
+  '/algorithms/_layout/searching': typeof AlgorithmsLayoutSearchingRoute
+  '/algorithms/_layout/sorting': typeof AlgorithmsLayoutSortingRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/algorithms' | '/algorithms/pathfinding'
+  fullPaths:
+    | '/'
+    | '/algorithms'
+    | '/algorithms/pathfinding'
+    | '/algorithms/searching'
+    | '/algorithms/sorting'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/algorithms' | '/algorithms/pathfinding'
+  to:
+    | '/'
+    | '/algorithms'
+    | '/algorithms/pathfinding'
+    | '/algorithms/searching'
+    | '/algorithms/sorting'
   id:
     | '__root__'
     | '/'
     | '/algorithms'
     | '/algorithms/_layout'
-    | '/algorithms/_layout/pathfinding/'
+    | '/algorithms/_layout/pathfinding'
+    | '/algorithms/_layout/searching'
+    | '/algorithms/_layout/sorting'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -96,22 +127,40 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AlgorithmsLayoutRouteImport
       parentRoute: typeof AlgorithmsRoute
     }
-    '/algorithms/_layout/pathfinding/': {
-      id: '/algorithms/_layout/pathfinding/'
+    '/algorithms/_layout/sorting': {
+      id: '/algorithms/_layout/sorting'
+      path: '/sorting'
+      fullPath: '/algorithms/sorting'
+      preLoaderRoute: typeof AlgorithmsLayoutSortingRouteImport
+      parentRoute: typeof AlgorithmsLayoutRoute
+    }
+    '/algorithms/_layout/searching': {
+      id: '/algorithms/_layout/searching'
+      path: '/searching'
+      fullPath: '/algorithms/searching'
+      preLoaderRoute: typeof AlgorithmsLayoutSearchingRouteImport
+      parentRoute: typeof AlgorithmsLayoutRoute
+    }
+    '/algorithms/_layout/pathfinding': {
+      id: '/algorithms/_layout/pathfinding'
       path: '/pathfinding'
       fullPath: '/algorithms/pathfinding'
-      preLoaderRoute: typeof AlgorithmsLayoutPathfindingIndexRouteImport
+      preLoaderRoute: typeof AlgorithmsLayoutPathfindingRouteImport
       parentRoute: typeof AlgorithmsLayoutRoute
     }
   }
 }
 
 interface AlgorithmsLayoutRouteChildren {
-  AlgorithmsLayoutPathfindingIndexRoute: typeof AlgorithmsLayoutPathfindingIndexRoute
+  AlgorithmsLayoutPathfindingRoute: typeof AlgorithmsLayoutPathfindingRoute
+  AlgorithmsLayoutSearchingRoute: typeof AlgorithmsLayoutSearchingRoute
+  AlgorithmsLayoutSortingRoute: typeof AlgorithmsLayoutSortingRoute
 }
 
 const AlgorithmsLayoutRouteChildren: AlgorithmsLayoutRouteChildren = {
-  AlgorithmsLayoutPathfindingIndexRoute: AlgorithmsLayoutPathfindingIndexRoute,
+  AlgorithmsLayoutPathfindingRoute: AlgorithmsLayoutPathfindingRoute,
+  AlgorithmsLayoutSearchingRoute: AlgorithmsLayoutSearchingRoute,
+  AlgorithmsLayoutSortingRoute: AlgorithmsLayoutSortingRoute,
 }
 
 const AlgorithmsLayoutRouteWithChildren =

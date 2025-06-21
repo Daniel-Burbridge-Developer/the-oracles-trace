@@ -9,7 +9,6 @@ function AlgorithmsLayout() {
   return (
     <SidebarProvider>
       <Outlet />
-      <SidebarTrigger />
     </SidebarProvider>
   );
 }
