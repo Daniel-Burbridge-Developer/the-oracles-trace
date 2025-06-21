@@ -53,8 +53,8 @@ This phase establishes the foundational application structure and development en
 - [x] **1.3 Core Layout & UI Shell:**
   - [x] Develop a basic application layout (header, sidebar/navigation, main content area).
   - [x] Design a simple, responsive UI shell to house the visualizations.
-- [ ] **1.4 Initial Data Generation (SSR Integration):**
-  - [ ] Experiment with `createServerFn` in React TanStack Start to generate an initial, simple dataset (e.g., a small array) on the server.
+- [x] **1.4 Initial Data Generation (SSR Integration):**
+  - [x] Experiment with `createServerFn` in React TanStack Start to generate an initial, simple dataset (e.g., a small array) on the server.
     - _Considerations:_ This demonstrates server-side rendering benefits for initial load.
     - _Purpose:_ Validate SSR data fetching.
 

@@ -5,31 +5,55 @@ import SideBar from "~/components/algorithms/SideBar";
 import TopControls from "~/components/algorithms/TopControls";
 import { z } from "zod";
 import { useState } from "react";
+import { Button } from "~/components/ui/button";
+import { Input } from "~/components/ui/input";
 
 export const Route = createFileRoute("/algorithms/_layout/sorting")({
   component: RouteComponent,
 });
 
+const MIN_COUNT = 1;
+const MAX_COUNT = 10;
+
+const ConstrainedCount = z.object({
+  count: z
+    .number()
+    .min(MIN_COUNT, { message: `Count must be at least ${MIN_COUNT}` })
+    .max(MAX_COUNT, { message: `Count must be at most ${MAX_COUNT}` })
+    .describe("The number of random numbers to generate"),
+});
+
 const generateRandomNumbers = createServerFn()
-  .validator(z.object({ count: z.number().min(1).max(999999) }))
+  .validator((count: unknown) => {
+    const result = ConstrainedCount.safeParse(count);
+    if (!result.success) {
+      const msg = result.error.issues.map((i) => i.message).join("\n");
+      const err = new Error(msg);
+      err.name = "Outside of Bounds";
+      err.stack = msg;
+      throw err;
+    }
+    return result.data;
+  })
   .handler(async ({ data }): Promise<number[]> => {
     const count = data.count;
     const numbers = [];
-    for (let i = 0; i < count + 1; i++) {
+    for (let i = 0; i < count; i++) {
       numbers.push(Math.floor(Math.random() * 10000));
     }
     return numbers;
   });
 
 function RouteComponent() {
-  const [count, setCount] = useState(100);
+  const [count, setCount] = useState(1);
 
   const generateRandomNumbersFn = useServerFn(generateRandomNumbers);
-  const { data } = useQuery({
+  const { data, isError, error } = useQuery({
     queryKey: ["generateRandomNumbers", "sorting", count],
     queryFn: () => generateRandomNumbersFn({ data: { count } }),
-    staleTime: 1000 * 60 * 60 * 24,
-    gcTime: 1000 * 60 * 60 * 24,
+    staleTime: Infinity,
+    retry: false,
+    retryDelay: 0,
   });
 
   return (
@@ -37,8 +61,19 @@ function RouteComponent() {
       <SideBar title="Sorting" />
       <div className="flex flex-1 flex-col">
         <TopControls />
+        <div className="flex flex-row gap-4">
+          <Input
+            type="number"
+            value={count}
+            onChange={(e) => {
+              setCount(Number(e.target.value));
+            }}
+          />
+          <Button onClick={() => setCount(100)}>Generate</Button>
+        </div>
+        {isError && <div className="text-red-500">{error?.message}</div>}
         <div className="flex flex-1 flex-col gap-4 bg-blue-500 p-4">
-          {data?.map((number, i) => <div key={i}>{`${i}\) ${number}`}</div>)}
+          {data?.map((number, i) => <div key={i}>{`${i + 1}. ${number}`}</div>)}
         </div>
       </div>
     </div>
