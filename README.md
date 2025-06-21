@@ -64,9 +64,9 @@ This phase establishes the foundational application structure and development en
 
 This phase focuses on implementing the first set of algorithms and their fundamental visual representations.
 
-- [ ] **2.1 Data Input Component:**
-  - [ ] Create a generic component for user input (e.g., array size, maze dimensions, number range).
-  - [ ] Implement validation for user inputs.
+- [x] **2.1 Data Input Component:**
+  - [x] Create a generic component for user input (e.g., array size, maze dimensions, number range).
+  - [x] Implement validation for user inputs.
 - [ ] **2.2 Algorithm Selection & Configuration:**
   - [ ] Develop a component to select which algorithm to visualize.
   - [ ] Allow for algorithm-specific configurations (e.g., sorting order, pathfinding start/end points).

@@ -44,6 +44,23 @@ const generateRandomNumbers = createServerFn()
     return numbers;
   });
 
+const SortingAlgorithms = {
+  bubbleSort: {
+    name: "Bubble Sort",
+    description:
+      "Bubble Sort is a simple sorting algorithm that repeatedly steps through the list, compares adjacent elements and swaps them if they are in the wrong order.",
+    steps: [
+      {
+        description:
+          "Compare the first two elements and swap them if they are in the wrong order.",
+      },
+    ],
+    options: {
+      // options to modify the algorithm
+    },
+  },
+};
+
 function RouteComponent() {
   const [count, setCount] = useState(1);
 
