@@ -50,9 +50,9 @@ This phase establishes the foundational application structure and development en
   - [x] Implement basic routing for different algorithm categories (e.g., `/sorting`, `/searching`, `/pathfinding`).
     - _Considerations:_ Utilize TanStack Router for type-safe routing.
   - [x] Create a home page/dashboard with clear links to various algorithm visualizers.
-- [ ] **1.3 Core Layout & UI Shell:**
+- [x] **1.3 Core Layout & UI Shell:**
   - [x] Develop a basic application layout (header, sidebar/navigation, main content area).
-  - [ ] Design a simple, responsive UI shell to house the visualizations.
+  - [x] Design a simple, responsive UI shell to house the visualizations.
 - [ ] **1.4 Initial Data Generation (SSR Integration):**
   - [ ] Experiment with `createServerFn` in React TanStack Start to generate an initial, simple dataset (e.g., a small array) on the server.
     - _Considerations:_ This demonstrates server-side rendering benefits for initial load.
