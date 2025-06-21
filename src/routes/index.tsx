@@ -140,7 +140,7 @@ function Home() {
             </motion.div>
             {/* Overlay */}
             <div className="absolute inset-0 bg-black/40 transition-colors duration-300 group-hover:bg-black/20" />
-            <motion.div className="group-hover:animate-border-glow absolute inset-0 rounded-xl border-2 border-transparent group-hover:border-pink-500/50" />
+            <motion.div className="absolute inset-0 rounded-xl border-2 border-transparent group-hover:animate-border-glow group-hover:border-pink-500/50" />
             {/* Label */}
             <motion.span
               className="absolute bottom-4 left-4 text-2xl font-semibold text-white drop-shadow-md"
