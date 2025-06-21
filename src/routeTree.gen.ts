@@ -20,7 +20,9 @@ import { Route as AlgorithmsLayoutSearchingRouteImport } from './routes/algorith
 import { Route as AlgorithmsLayoutRecursionRouteImport } from './routes/algorithms/_layout/recursion'
 import { Route as AlgorithmsLayoutPathfindingRouteImport } from './routes/algorithms/_layout/pathfinding'
 import { Route as AlgorithmsLayoutMachineLearningRouteImport } from './routes/algorithms/_layout/machine-learning'
+import { Route as AlgorithmsLayoutLoadBalancingRouteImport } from './routes/algorithms/_layout/load-balancing'
 import { Route as AlgorithmsLayoutGraphRouteImport } from './routes/algorithms/_layout/graph'
+import { Route as AlgorithmsLayoutGameTheoryRouteImport } from './routes/algorithms/_layout/game-theory'
 import { Route as AlgorithmsLayoutDynamicProgrammingRouteImport } from './routes/algorithms/_layout/dynamic-programming'
 import { Route as AlgorithmsLayoutDataStructuresRouteImport } from './routes/algorithms/_layout/data-structures'
 import { Route as AlgorithmsLayoutCompressionRouteImport } from './routes/algorithms/_layout/compression'
@@ -80,11 +82,23 @@ const AlgorithmsLayoutMachineLearningRoute =
     path: '/machine-learning',
     getParentRoute: () => AlgorithmsLayoutRoute,
   } as any)
+const AlgorithmsLayoutLoadBalancingRoute =
+  AlgorithmsLayoutLoadBalancingRouteImport.update({
+    id: '/load-balancing',
+    path: '/load-balancing',
+    getParentRoute: () => AlgorithmsLayoutRoute,
+  } as any)
 const AlgorithmsLayoutGraphRoute = AlgorithmsLayoutGraphRouteImport.update({
   id: '/graph',
   path: '/graph',
   getParentRoute: () => AlgorithmsLayoutRoute,
 } as any)
+const AlgorithmsLayoutGameTheoryRoute =
+  AlgorithmsLayoutGameTheoryRouteImport.update({
+    id: '/game-theory',
+    path: '/game-theory',
+    getParentRoute: () => AlgorithmsLayoutRoute,
+  } as any)
 const AlgorithmsLayoutDynamicProgrammingRoute =
   AlgorithmsLayoutDynamicProgrammingRouteImport.update({
     id: '/dynamic-programming',
@@ -110,7 +124,9 @@ export interface FileRoutesByFullPath {
   '/algorithms/compression': typeof AlgorithmsLayoutCompressionRoute
   '/algorithms/data-structures': typeof AlgorithmsLayoutDataStructuresRoute
   '/algorithms/dynamic-programming': typeof AlgorithmsLayoutDynamicProgrammingRoute
+  '/algorithms/game-theory': typeof AlgorithmsLayoutGameTheoryRoute
   '/algorithms/graph': typeof AlgorithmsLayoutGraphRoute
+  '/algorithms/load-balancing': typeof AlgorithmsLayoutLoadBalancingRoute
   '/algorithms/machine-learning': typeof AlgorithmsLayoutMachineLearningRoute
   '/algorithms/pathfinding': typeof AlgorithmsLayoutPathfindingRoute
   '/algorithms/recursion': typeof AlgorithmsLayoutRecursionRoute
@@ -125,7 +141,9 @@ export interface FileRoutesByTo {
   '/algorithms/compression': typeof AlgorithmsLayoutCompressionRoute
   '/algorithms/data-structures': typeof AlgorithmsLayoutDataStructuresRoute
   '/algorithms/dynamic-programming': typeof AlgorithmsLayoutDynamicProgrammingRoute
+  '/algorithms/game-theory': typeof AlgorithmsLayoutGameTheoryRoute
   '/algorithms/graph': typeof AlgorithmsLayoutGraphRoute
+  '/algorithms/load-balancing': typeof AlgorithmsLayoutLoadBalancingRoute
   '/algorithms/machine-learning': typeof AlgorithmsLayoutMachineLearningRoute
   '/algorithms/pathfinding': typeof AlgorithmsLayoutPathfindingRoute
   '/algorithms/recursion': typeof AlgorithmsLayoutRecursionRoute
@@ -142,7 +160,9 @@ export interface FileRoutesById {
   '/algorithms/_layout/compression': typeof AlgorithmsLayoutCompressionRoute
   '/algorithms/_layout/data-structures': typeof AlgorithmsLayoutDataStructuresRoute
   '/algorithms/_layout/dynamic-programming': typeof AlgorithmsLayoutDynamicProgrammingRoute
+  '/algorithms/_layout/game-theory': typeof AlgorithmsLayoutGameTheoryRoute
   '/algorithms/_layout/graph': typeof AlgorithmsLayoutGraphRoute
+  '/algorithms/_layout/load-balancing': typeof AlgorithmsLayoutLoadBalancingRoute
   '/algorithms/_layout/machine-learning': typeof AlgorithmsLayoutMachineLearningRoute
   '/algorithms/_layout/pathfinding': typeof AlgorithmsLayoutPathfindingRoute
   '/algorithms/_layout/recursion': typeof AlgorithmsLayoutRecursionRoute
@@ -159,7 +179,9 @@ export interface FileRouteTypes {
     | '/algorithms/compression'
     | '/algorithms/data-structures'
     | '/algorithms/dynamic-programming'
+    | '/algorithms/game-theory'
     | '/algorithms/graph'
+    | '/algorithms/load-balancing'
     | '/algorithms/machine-learning'
     | '/algorithms/pathfinding'
     | '/algorithms/recursion'
@@ -174,7 +196,9 @@ export interface FileRouteTypes {
     | '/algorithms/compression'
     | '/algorithms/data-structures'
     | '/algorithms/dynamic-programming'
+    | '/algorithms/game-theory'
     | '/algorithms/graph'
+    | '/algorithms/load-balancing'
     | '/algorithms/machine-learning'
     | '/algorithms/pathfinding'
     | '/algorithms/recursion'
@@ -190,7 +214,9 @@ export interface FileRouteTypes {
     | '/algorithms/_layout/compression'
     | '/algorithms/_layout/data-structures'
     | '/algorithms/_layout/dynamic-programming'
+    | '/algorithms/_layout/game-theory'
     | '/algorithms/_layout/graph'
+    | '/algorithms/_layout/load-balancing'
     | '/algorithms/_layout/machine-learning'
     | '/algorithms/_layout/pathfinding'
     | '/algorithms/_layout/recursion'
@@ -277,11 +303,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AlgorithmsLayoutMachineLearningRouteImport
       parentRoute: typeof AlgorithmsLayoutRoute
     }
+    '/algorithms/_layout/load-balancing': {
+      id: '/algorithms/_layout/load-balancing'
+      path: '/load-balancing'
+      fullPath: '/algorithms/load-balancing'
+      preLoaderRoute: typeof AlgorithmsLayoutLoadBalancingRouteImport
+      parentRoute: typeof AlgorithmsLayoutRoute
+    }
     '/algorithms/_layout/graph': {
       id: '/algorithms/_layout/graph'
       path: '/graph'
       fullPath: '/algorithms/graph'
       preLoaderRoute: typeof AlgorithmsLayoutGraphRouteImport
+      parentRoute: typeof AlgorithmsLayoutRoute
+    }
+    '/algorithms/_layout/game-theory': {
+      id: '/algorithms/_layout/game-theory'
+      path: '/game-theory'
+      fullPath: '/algorithms/game-theory'
+      preLoaderRoute: typeof AlgorithmsLayoutGameTheoryRouteImport
       parentRoute: typeof AlgorithmsLayoutRoute
     }
     '/algorithms/_layout/dynamic-programming': {
@@ -312,7 +352,9 @@ interface AlgorithmsLayoutRouteChildren {
   AlgorithmsLayoutCompressionRoute: typeof AlgorithmsLayoutCompressionRoute
   AlgorithmsLayoutDataStructuresRoute: typeof AlgorithmsLayoutDataStructuresRoute
   AlgorithmsLayoutDynamicProgrammingRoute: typeof AlgorithmsLayoutDynamicProgrammingRoute
+  AlgorithmsLayoutGameTheoryRoute: typeof AlgorithmsLayoutGameTheoryRoute
   AlgorithmsLayoutGraphRoute: typeof AlgorithmsLayoutGraphRoute
+  AlgorithmsLayoutLoadBalancingRoute: typeof AlgorithmsLayoutLoadBalancingRoute
   AlgorithmsLayoutMachineLearningRoute: typeof AlgorithmsLayoutMachineLearningRoute
   AlgorithmsLayoutPathfindingRoute: typeof AlgorithmsLayoutPathfindingRoute
   AlgorithmsLayoutRecursionRoute: typeof AlgorithmsLayoutRecursionRoute
@@ -327,7 +369,9 @@ const AlgorithmsLayoutRouteChildren: AlgorithmsLayoutRouteChildren = {
   AlgorithmsLayoutDataStructuresRoute: AlgorithmsLayoutDataStructuresRoute,
   AlgorithmsLayoutDynamicProgrammingRoute:
     AlgorithmsLayoutDynamicProgrammingRoute,
+  AlgorithmsLayoutGameTheoryRoute: AlgorithmsLayoutGameTheoryRoute,
   AlgorithmsLayoutGraphRoute: AlgorithmsLayoutGraphRoute,
+  AlgorithmsLayoutLoadBalancingRoute: AlgorithmsLayoutLoadBalancingRoute,
   AlgorithmsLayoutMachineLearningRoute: AlgorithmsLayoutMachineLearningRoute,
   AlgorithmsLayoutPathfindingRoute: AlgorithmsLayoutPathfindingRoute,
   AlgorithmsLayoutRecursionRoute: AlgorithmsLayoutRecursionRoute,

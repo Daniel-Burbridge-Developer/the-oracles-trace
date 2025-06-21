@@ -483,4 +483,112 @@ export const graphAlgorithms = {
       ],
     },
   },
+  pageRank: {
+    name: "PageRank Algorithm",
+    description:
+      "PageRank assigns a numerical weighting to each element (e.g., a web page) of a hyperlinked set of documents, with the purpose of 'ranking' them by importance. It operates on the principle that links from important pages are more valuable than links from less important pages.",
+    steps: [
+      {
+        step: 1,
+        action:
+          "Initialize: Assign an initial PageRank value (e.g., 1/N for N pages) to all pages. A 'damping factor' (d, typically 0.85) is also set, representing the probability that a 'random surfer' will continue clicking links rather than jumping to a random page.",
+      },
+      {
+        step: 2,
+        action:
+          "Iterate: Repeatedly update the PageRank of each page until the values converge (i.e., the change in PageRank between iterations becomes very small).",
+      },
+      {
+        step: 3,
+        action:
+          "For each page P, its new PageRank is calculated based on the PageRank of pages 'T' that link to it: `PR(P) = (1-d) + d * Sum(PR(T)/C(T))` where `C(T)` is the number of outgoing links from page T.",
+      },
+      {
+        step: 4,
+        action:
+          "Contribution: Each page `T` distributes its current PageRank evenly among its outgoing links. Page `P` receives a fraction of PageRank from each page `T` that links to it.",
+      },
+      {
+        step: 5,
+        action:
+          "Random Jump: The `(1-d)` component accounts for a 'random surfer' who, at any step, jumps to a random page rather than following a link. This prevents 'dead ends' or 'rank sinks' from trapping PageRank.",
+      },
+      {
+        step: 6,
+        action:
+          "Convergence: Stop when PageRank values stabilize across iterations, indicating a steady state of 'importance'.",
+      },
+    ],
+    options: {
+      numPages: {
+        type: "number",
+        description: "Number of web pages (nodes in the graph).",
+        min: 5,
+        max: 15,
+        defaultValue: 8,
+      },
+      dampingFactor: {
+        type: "number",
+        description:
+          "Probability of a 'random surfer' following a link (0.0 to 1.0).",
+        min: 0.5,
+        max: 0.95,
+        step: 0.05,
+        defaultValue: 0.85,
+      },
+      numIterations: {
+        type: "number",
+        description: "Number of iterations for PageRank calculation.",
+        min: 5,
+        max: 50,
+        defaultValue: 20,
+      },
+      showPageRankValues: {
+        type: "boolean",
+        description:
+          "Display the PageRank value for each page during iterations.",
+        defaultValue: true,
+      },
+      highlightContributions: {
+        type: "boolean",
+        description: "Highlight the flow of PageRank from one page to another.",
+        defaultValue: true,
+      },
+    },
+    practicalApplicationsAndConsiderations: {
+      whenToUse: {
+        description:
+          "PageRank is suitable for ranking nodes in a directed graph based on connectivity and importance.",
+        scenarios: [
+          "**Web Page Ranking:** The original and most famous application, to determine the authority and importance of web pages for search results.",
+          "**Social Network Analysis:** Identifying influential users or central figures within a social network.",
+          "**Citation Analysis:** Ranking the importance of scientific papers based on citations.",
+          "**Recommendation Systems:** Ranking items or users in a graph-based recommendation system.",
+          "**Network Centrality Measures:** Providing a measure of importance in various types of networks (e.g., biological networks, transportation networks).",
+        ],
+      },
+      whenNotToUse: {
+        description:
+          "PageRank might not be ideal when the graph structure is irrelevant or when real-time, highly dynamic ranking is needed without iterative convergence.",
+        scenarios: [
+          "**Unconnected Graphs (without modification):** The basic algorithm assumes a connected graph where every page is reachable. Modifications are needed for disconnected components.",
+          "**When Link Spam/Manipulation is Rife:** PageRank can be susceptible to link manipulation (e.g., link farms) if not combined with other sophisticated anti-spam measures.",
+          "**When Real-time Updates are Required:** The iterative nature of PageRank means it's not ideal for highly dynamic graphs where rankings need to be recomputed constantly and instantly.",
+          "**When a simple count of incoming links is sufficient:** For very basic importance measures, a simple in-degree count might suffice if the graph is small and quality of links is not a factor.",
+        ],
+      },
+      benefits: [
+        "Provides a robust, globally consistent measure of importance.",
+        "Resistant to simple link spam due to the iterative nature and damping factor.",
+        "Fundamental to understanding modern search engines.",
+        "Adaptable to various network analysis problems beyond web pages.",
+      ],
+      cons: [
+        "Computationally intensive for very large graphs (requires iterative matrix operations).",
+        "Does not account for the *content* or *topic* of pages, only their link structure.",
+        "Can be manipulated (though modern search engines use many other signals alongside PageRank).",
+        "Rank dilution in very large graphs.",
+      ],
+    },
+  },
 };
