@@ -26,22 +26,15 @@ function Home() {
       className: "col-span-12 sm:col-span-4 row-span-1",
     },
     {
-      name: "About & Docs",
-      href: "/about-docs",
-      img: "https://iv1bgce8et.ufs.sh/f/ryr1dmZ5jpgctFIXLcV2skmVQPwSIZaGbDuM1LcUClRfnWpd",
-      className: "col-span-12 sm:col-span-4 row-span-1",
-    },
-    // --- New Sections Below ---
-    {
       name: "Graph Algorithms",
       href: "/algorithms/graphs",
-      img: "https://your-image-host.com/graph_algo.jpg", // Placeholder image
+      img: "https://iv1bgce8et.ufs.sh/f/ryr1dmZ5jpgcyxTpEidvTxIewJhzAPYuQZ8WNygtD3mR0n7K", // Placeholder image
       className: "col-span-12 sm:col-span-4 row-span-1",
     },
     {
       name: "Tree Algorithms",
       href: "/algorithms/trees",
-      img: "https://your-image-host.com/tree_algo.jpg", // Placeholder image
+      img: "https://iv1bgce8et.ufs.sh/f/ryr1dmZ5jpgcqI2IlZD2DaOgdFi018c59o7IE3ALKURWrQZ4", // Placeholder image
       className: "col-span-12 sm:col-span-4 row-span-1",
     },
     {
@@ -53,32 +46,38 @@ function Home() {
     {
       name: "Data Structures",
       href: "/data-structures",
-      img: "https://your-image-host.com/data_structures.jpg", // Placeholder image
+      img: "https://iv1bgce8et.ufs.sh/f/ryr1dmZ5jpgciQQpJncuzQ9UVOny6PsSxNLpvrb1Ca05liIq", // Placeholder image
       className: "col-span-12 sm:col-span-6 row-span-1",
     },
     {
       name: "Compression Algorithms",
       href: "/algorithms/compression",
-      img: "https://your-image-host.com/compression_algo.jpg", // Placeholder image
+      img: "https://iv1bgce8et.ufs.sh/f/ryr1dmZ5jpgc5fpvK7s62NgZB4OI8cwlkYRWxFCHi73sqa9X", // Placeholder image
       className: "col-span-12 sm:col-span-4 row-span-1",
     },
     {
       name: "String Algorithms",
       href: "/algorithms/strings",
-      img: "https://your-image-host.com/string_algo.jpg", // Placeholder image
+      img: "https://iv1bgce8et.ufs.sh/f/ryr1dmZ5jpgcnZ0I61MlZ5TQGIWxf7HOdzYuU6voaJtjewhk", // Placeholder image
       className: "col-span-12 sm:col-span-4 row-span-1",
     },
     {
       name: "Recursion",
       href: "/algorithms/recursion",
-      img: "https://your-image-host.com/recursion_algo.jpg", // Placeholder image
+      img: "https://iv1bgce8et.ufs.sh/f/ryr1dmZ5jpgcd8Afrl3BNAG8e4Fn9HyoYkEtwspRKWLhqDc0", // Placeholder image
       className: "col-span-12 sm:col-span-4 row-span-1",
     },
     {
       name: "Machine Learning (Basic)",
       href: "/algorithms/machine-learning",
-      img: "https://your-image-host.com/ml_algo.jpg", // Placeholder image
+      img: "https://iv1bgce8et.ufs.sh/f/ryr1dmZ5jpgccjb8BkogIuXwJsWVfCZ698kqFb7ylpSeUvax", // Placeholder image
       className: "col-span-12 sm:col-span-6 row-span-1",
+    },
+    {
+      name: "About & Docs",
+      href: "/about-docs",
+      img: "https://iv1bgce8et.ufs.sh/f/ryr1dmZ5jpgctFIXLcV2skmVQPwSIZaGbDuM1LcUClRfnWpd",
+      className: "col-span-12 sm:col-span-4 row-span-1",
     },
   ];
 
